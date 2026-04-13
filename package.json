@@ -1,0 +1,17 @@
+{
+  "name": "my-profile",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "cd my-react-app && npm run dev",
+    "dev": "cd my-react-app && npm run dev",
+    "build": "cd my-react-app && npm run build",
+    "preview": "cd my-react-app && npm run preview",
+    "lint": "cd my-react-app && npm run lint",
+    "gen:cv": "cd my-react-app && npm run gen:cv"
+  },
+  "dependencies": {
+    "framer-motion": "^12.38.0",
+    "lucide-react": "^1.7.0"
+  }
+}
