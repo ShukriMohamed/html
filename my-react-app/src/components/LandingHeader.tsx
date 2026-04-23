@@ -4,10 +4,13 @@ type NavLink = { label: string; href: string; newTab?: boolean };
 
 const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "#home" },
-  { label: "CV", href: "/cv.pdf", newTab: true },
+  { label: "CV", href: "#cv" },
+  { label: "Résumé PDF", href: "/cv.pdf", newTab: true },
+  { label: "Skills", href: "#skills" },
   { label: "Project", href: "#project" },
   { label: "Achievement", href: "#achievement" },
   { label: "Hobbies", href: "#hobbies" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export default function LandingHeader() {

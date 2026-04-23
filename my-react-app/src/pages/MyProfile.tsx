@@ -5,6 +5,17 @@ import "../components/Projects.css";
 import "../components/ProjectCard.css";
 import "./MyProfile.css";
 
+const SKILLS = [
+  "React",
+  "TypeScript",
+  "JavaScript",
+  "HTML & CSS",
+  "Tailwind CSS",
+  "Git",
+  "GitHub",
+  "Responsive UI",
+];
+
 export default function MyProfile() {
   const [profileImageSrc, setProfileImageSrc] = useState("/profile.png");
 
@@ -19,7 +30,13 @@ export default function MyProfile() {
               src={profileImageSrc}
               alt="Profile"
               onError={() => {
-                setProfileImageSrc("https://i.pravatar.cc/320?img=12");
+                setProfileImageSrc((prev) => {
+                  if (prev === "/profile.png") return "/profile.svg";
+                  if (prev === "/profile.svg") {
+                    return "https://i.pravatar.cc/320?img=12";
+                  }
+                  return prev;
+                });
               }}
               className="my-profile__photo"
             />
@@ -79,6 +96,25 @@ export default function MyProfile() {
         </section>
 
         <section
+          id="skills"
+          className="my-profile__section my-profile__section--light"
+          aria-labelledby="skills-heading"
+        >
+          <h2 id="skills-heading">Tech I use</h2>
+          <p>
+            Tools and technologies I reach for when building interfaces and
+            learning on personal projects.
+          </p>
+          <ul className="my-profile__skills-chips" aria-label="Skills">
+            {SKILLS.map((label) => (
+              <li key={label} className="my-profile__skill-chip">
+                {label}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section
           id="project"
           className="my-profile__section my-profile__section--light"
           aria-labelledby="project-heading"
@@ -98,42 +134,36 @@ export default function MyProfile() {
           aria-labelledby="achievement-heading"
         >
           <h2 id="achievement-heading">Achievement</h2>
-          <p>
-            <section>
-              <h2 id="achievement-heading"></h2>
 
-              <ul>
-                <li>
-                  Completed a Bachelor’s Degree in Public Health with strong
-                  academic performance and practical knowledge in community
-                  health and healthcare systems.
-                </li>
+          <ul>
+            <li>
+              Completed a Bachelor&apos;s Degree in Public Health with strong
+              academic performance and practical knowledge in community health
+              and healthcare systems.
+            </li>
 
-                <li>
-                  Developed strong front-end development skills through
-                  self-study, including React, TypeScript, and Tailwind CSS, and
-                  built multiple personal projects.
-                </li>
+            <li>
+              Developed strong front-end development skills through self-study,
+              including React, TypeScript, and Tailwind CSS, and built multiple
+              personal projects.
+            </li>
 
-                <li>
-                  Successfully transitioned into tech from a healthcare
-                  background, demonstrating adaptability, discipline, and
-                  continuous learning mindset.
-                </li>
+            <li>
+              Successfully transitioned into tech from a healthcare background,
+              demonstrating adaptability, discipline, and continuous learning
+              mindset.
+            </li>
 
-                <li>
-                  Improved computer literacy through hands-on practice with
-                  modern tools, including Git, GitHub, and LibreOffice.
-                </li>
+            <li>
+              Improved computer literacy through hands-on practice with modern
+              tools, including Git, GitHub, and LibreOffice.
+            </li>
 
-                <li>
-                  Gained experience working in educational settings in London,
-                  strengthening communication, teamwork, and organizational
-                  skills.
-                </li>
-              </ul>
-            </section>
-          </p>
+            <li>
+              Gained experience working in educational settings in London,
+              strengthening communication, teamwork, and organizational skills.
+            </li>
+          </ul>
         </section>
 
         <section
@@ -142,43 +172,56 @@ export default function MyProfile() {
           aria-labelledby="hobbies-heading"
         >
           <h2 id="hobbies-heading">Hobbies</h2>
+
           <p>
-            <section
-  id="hobbies"
-  className="my-profile__section my-profile__section--light"
->
-  <h2>Hobbies</h2>
-
-  <p>
-    Outside of my professional work, I enjoy continuously improving my skills
-    through self-learning and personal projects. I have a strong interest in
-    web design, exploring new technologies, and building creative digital
-    solutions.
-  </p>
-
-  <p>
-    I also enjoy reading, personal development, and creative activities such as
-    design and beauty-related arts, which help me stay inspired and detail-oriented.
-  </p>
-</section>
+            Outside of my professional work, I enjoy continuously improving my
+            skills through self-learning and personal projects. I have a strong
+            interest in web design, exploring new technologies, and building
+            creative digital solutions.
           </p>
-        </section>c
+
+          <p>
+            I also enjoy reading, personal development, and creative activities
+            such as design and beauty-related arts, which help me stay inspired
+            and detail-oriented.
+          </p>
+        </section>
 
         <section
+          id="contact"
           className="my-profile__contact"
           aria-labelledby="contact-heading"
         >
           <h2 id="contact-heading">Contact</h2>
           <div className="my-profile__social">
-            <a href="https://github.com/ShukriMohamed" target="_blank">
+            <a
+              href="https://github.com/ShukriMohamed"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub profile"
+            >
               🐙
             </a>
-            <a href="https://linkedin.com/in/shukri-mohamed" target="_blank">
+            <a
+              href="https://linkedin.com/in/shukri-mohamed"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn profile"
+            >
               💼
             </a>
-            <a href="mailto:geenyo360@gmail.com">✉️</a>
+            <a href="mailto:geenyo360@gmail.com" aria-label="Email">
+              ✉️
+            </a>
           </div>
         </section>
+
+        <footer className="my-profile__footer">
+          <p>
+            © {new Date().getFullYear()} Shukri Mohamed · Built with React &
+            Vite
+          </p>
+        </footer>
       </main>
     </div>
   );

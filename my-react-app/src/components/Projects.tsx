@@ -11,21 +11,21 @@ function Projects() {
           title="BeautyHub"
           description="A beauty services booking web application with a clean and responsive user interface."
           tech={["React", "TypeScript", "CSS"]}
-          github="https://github.com/YOUR_GITHUB_USERNAME/beautyhub"
+          github="https://github.com/ShukriMohamed/beautyhub"
         />
 
         <ProjectCard
           title="Visa Application App"
           description="A multi-step visa application form with validation and structured user input."
           tech={["React", "JavaScript", "CSS"]}
-          github="https://github.com/YOUR_GITHUB_USERNAME/visa-application"
+          github="https://github.com/ShukriMohamed/visa-application"
         />
 
         <ProjectCard
           title="Personal Portfolio"
           description="My personal portfolio website showcasing frontend projects and skills."
           tech={["React", "TypeScript", "CSS"]}
-          github="https://github.com/YOUR_GITHUB_USERNAME/my-portfolio"
+          github="https://github.com/ShukriMohamed/my_profile"
         />
       </div>
     </section>

@@ -157,6 +157,33 @@ html {
   color: #334155;
 }
 
+.my-profile__skills-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  max-width: 42rem;
+  list-style: none;
+}
+
+.my-profile__skill-chip {
+  display: inline-block;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background: rgba(76, 29, 149, 0.12);
+  color: #4c1d95;
+  border: 1px solid rgba(76, 29, 149, 0.25);
+}
+
+.my-profile__section--muted .my-profile__skill-chip {
+  background: rgba(253, 224, 71, 0.15);
+  color: #fde047;
+  border-color: rgba(253, 224, 71, 0.35);
+}
+
 .my-profile__projects-wrap {
   margin-top: 1rem;
 }
@@ -174,6 +201,7 @@ html {
 .my-profile__contact {
   text-align: center;
   padding: 3rem 0;
+  scroll-margin-top: 5rem;
 }
 
 .my-profile__contact h2 {
@@ -187,3 +215,69 @@ html {
   gap: 1.5rem;
   font-size: 1.75rem;
 }
+
+/* ===== UI IMPROVEMENTS ===== */
+
+/* 1. Section hover effect */
+.my-profile__section {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.my-profile__section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+/* 2. Button improvements */
+.my-profile__btn--primary:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(253, 224, 71, 0.5);
+}
+
+.my-profile__btn--ghost:hover {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+/* 3. Social icons hover */
+.my-profile__social a {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.my-profile__social a:hover {
+  transform: scale(1.3);
+  opacity: 0.8;
+}
+
+/* 4. Improve text readability */
+.my-profile__section--muted p {
+  color: rgba(248, 250, 252, 0.9);
+}
+
+/* 5. Smooth section animation */
+.my-profile__section {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.my-profile__footer {
+  text-align: center;
+  padding: 1.5rem 0 0;
+  margin-top: 1rem;
+  border-top: 1px solid rgba(248, 250, 252, 0.15);
+}
+
+.my-profile__footer p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: rgba(248, 250, 252, 0.65);
+}
+
